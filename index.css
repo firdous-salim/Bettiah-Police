@@ -635,8 +635,9 @@ body {
 
 /* Press Release Section */
 .press-release {
+    margin-top: -38px;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     padding: 20px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
@@ -699,7 +700,8 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 12px 12px 0 0;
-    /* padding: 9px 0; */
+    padding: 9px 0;
+    height: 42px;
 }
 
 .Criminal-section1 {
@@ -810,8 +812,9 @@ body {
 
 /* Important Links Section */
 .important-links {
+    margin-top: -20px;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     padding: 20px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
@@ -1184,37 +1187,38 @@ body {
 
         16.66%,
         28.32% {
-            transform: translateX(-180.34px);
+            transform: translateX(-320.34px);
         }
 
         33.32%,
         44.98% {
-            transform: translateX(-400.68px)
+            transform: translateX(-640.68px)
         }
 
         49.98%,
         61.64% {
-            transform: translateX(-577.02px);
+            transform: translateX(-961.02px);
         }
 
         66.64%,
         78.3% {
-            transform: translateX(-772.36px)
+            transform: translateX(-1281.36px)
         }
 
         83.3%,
         94.96% {
-            transform: translateX(-962.36px)
+            transform: translateX(-1601.7px)
         }
 
         100% {
-            transform: translateX(-1160.36px)
+            transform: translateX(-1922.04px)
         }
     }
 
     .Criminal-container>h2 {
        padding-top: 4px;
         text-align: center;
+        font-size: 17px;
     }
 
     .faltu {
@@ -1224,6 +1228,38 @@ body {
     .gallery-item {
         width: 300px;
     }
+    .rowclass{
+        /* padding: 0 12.5px; */
+    }
+    .rowclass_track{
+        gap: 20px;
+    }
+    @keyframes item_flow {
+
+    0%,
+    20% {
+        transform: translateX(0);
+    }
+
+    25%,
+    45% {
+        transform: translateX(-312.5px);
+    }
+
+    50%,
+    70% {
+        transform: translateX(-626px)
+    }
+
+    75%,
+    95% {
+        transform: translateX(-950.5px);
+    }
+
+    100% {
+        transform: translateX(-1250px)
+    }
+}
 
 
 }
