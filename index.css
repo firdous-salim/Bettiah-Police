@@ -767,7 +767,7 @@ body {
     gap: 20px;
     display: flex;
     width: calc(14vw * 12);
-    animation: crime_flow 100s linear infinite;
+    animation: crime_flow 20s linear infinite;
 }
 
 @keyframes crime_flow {
@@ -776,6 +776,7 @@ body {
     11.66% {
         transform: translateX(0);
     }
+
     16.66%,
     28.32% {
         transform: translateX(-191.34px);
@@ -1144,5 +1145,85 @@ body {
     .right-side-button-container {
         display: none;
     }
+
+    .criminal_recent_container {
+        /* position: absolute; */
+        display: flex;
+        flex-direction: column;
+        overflow-y: visible;
+    }
+
+    .Criminal-container {
+        width: 100%;
+    }
+
+    .side {
+        width: 300px;
+        background-color: var(--saffron);
+        object-fit: cover;
+    }
+
+    .side>.photo {
+        width: 350px;
+    }
+
+    .criminalTrack {
+        width: calc(350px*12);
+    }
+
+    .main-container {
+        margin-top: 60vh;
+    }
+
+    @keyframes crime_flow {
+
+        0%,
+        11.66% {
+            transform: translateX(0);
+        }
+
+        16.66%,
+        28.32% {
+            transform: translateX(-180.34px);
+        }
+
+        33.32%,
+        44.98% {
+            transform: translateX(-400.68px)
+        }
+
+        49.98%,
+        61.64% {
+            transform: translateX(-577.02px);
+        }
+
+        66.64%,
+        78.3% {
+            transform: translateX(-772.36px)
+        }
+
+        83.3%,
+        94.96% {
+            transform: translateX(-962.36px)
+        }
+
+        100% {
+            transform: translateX(-1160.36px)
+        }
+    }
+
+    .Criminal-container>h2 {
+       padding-top: 4px;
+        text-align: center;
+    }
+
+    .faltu {
+        /* display: none; */
+    }
+
+    .gallery-item {
+        width: 300px;
+    }
+
 
 }
