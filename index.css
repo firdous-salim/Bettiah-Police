@@ -554,7 +554,7 @@ body {
 .left-side-button-container a {
     padding: 4px;
     border: 1px solid black;
-    width: 16vw;
+    width: 247.57px;
     position: fixed;
     left: -13vw;
     text-decoration: none;
@@ -612,6 +612,8 @@ body {
 }
 
 .right-column {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     min-width: 250px;
 }
@@ -867,7 +869,7 @@ body {
 
 /* Statistics Section */
 .stats-section {
-    background-color: var(--dark-blue);
+    /* background-color: var(--dark-blue); */
     color: white;
     padding: 50px 0;
 }
@@ -881,7 +883,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 10px;
-    color: var(--saffron);
+    color: white;
 }
 
 .stat-label {
