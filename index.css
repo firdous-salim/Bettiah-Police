@@ -556,7 +556,7 @@ body {
     border: 1px solid black;
     width: 16vw;
     position: fixed;
-    left: 13vw;
+    left: -13vw;
     text-decoration: none;
     color: white;
     border-top-right-radius: 15px;
