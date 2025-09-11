@@ -117,7 +117,7 @@ body {
     background-color: var(--dark-blue);
     color: white;
     padding: 6px 0;
-    font-size: 12px;
+    font-size: 1rem;
     height: 6.5vh;
     border-bottom: 2px solid red;
     border-top: 2px solid red;
