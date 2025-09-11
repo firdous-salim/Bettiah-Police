@@ -783,31 +783,31 @@ body {
 
     16.66%,
     28.32% {
-        transform: translateX(-191.34px);
+        transform: translateX(-14vw);
     }
 
     33.32%,
     44.98% {
-        transform: translateX(-383.68px)
+        transform: translateX(-28vw)
     }
 
     49.98%,
     61.64% {
-        transform: translateX(-577.02px);
+        transform: translateX(-42.24vw);
     }
 
     66.64%,
     78.3% {
-        transform: translateX(-772.36px)
+        transform: translateX(-56.54vw)
     }
 
     83.3%,
     94.96% {
-        transform: translateX(-962.36px)
+        transform: translateX(-70.45vw)
     }
 
     100% {
-        transform: translateX(-1160.36px)
+        transform: translateX(-84.94vw)
     }
 }
 
