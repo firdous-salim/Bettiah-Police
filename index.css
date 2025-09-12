@@ -93,11 +93,6 @@
     align-items: center;
     justify-content: center;
 }
-
-/* .M{
-            display: flex;
-            justify-content: space-around;
-        } */
 * {
     margin: 0;
     padding: 0;
@@ -153,47 +148,12 @@ body {
     height: 21.7vh;
     margin-right: 15px;
 }
-
-.department-name {
-    line-height: 1.2;
-}
-
-.department-name h1 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0;
-    color: var(--dark-blue);
-}
-
-.department-name h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0;
-    color: var(--navy);
-}
-
-.emergency-contact {
-    width: 18vw;
-    background-color: var(--saffron);
-    color: #333;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
-}
-
-.emergency-contact .number {
-    font-size: 1.4rem;
-    font-weight: 700;
-}
-
 .ptobox {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2vh 0;
-    /* background-color: #f7b900; */
 }
 
 .pto {
@@ -213,8 +173,9 @@ body {
     color: var(--dark-blue);
     font-weight: 600;
 }
-
+/* Navbar Style  */
 .navbar {
+    font-size: clamp(16px,1.17vw,22px);
     padding: 0 7.72vw;
     background-color: var(--navy);
     height: 6vh;
@@ -245,30 +206,11 @@ body {
 .navbar .dropdown-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
-
-.language-switcher {
-    background-color: white;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.language-switcher button {
-    border: none;
-    padding: 5px 15px;
-    font-weight: 500;
-    background: none;
-}
-
-.language-switcher button.active {
-    background-color: var(--dark-blue);
-    color: white;
-}
-
 /* Hero Banner */
 .hero-banner {
+    margin: 0 7.68vw;
     position: relative;
     min-height: 500px;
-    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; */
     display: flex;
     align-items: center;
     color: white;
@@ -507,12 +449,20 @@ body {
 
 
 /* Right Side Button*/
+.right-side-button-container{
+    position: fixed;
+    top: 13vh;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap:4px;
+}
 .right-side-button-container a {
+    position: relative;
     padding: 4px;
     border: 1px solid black;
-    width: 17vw;
-    position: fixed;
-    right: -14.2vw;
+    width: 232.22px;
+    right: -194px;
     text-decoration: none;
     color: white;
     border-top-left-radius: 15px;
@@ -523,7 +473,7 @@ body {
 }
 
 #PoliceNumber {
-    top: 13vh;
+    /* top: 13vh; */
     background-color: #ff681a;
     color: white;
     font-weight: 600;
@@ -532,7 +482,7 @@ body {
 }
 
 #MahilaNumber {
-    top: 20vh;
+    /* top: 20vh; */
     background-color: #ffffff;
     color: red;
     font-weight: 600;
@@ -540,23 +490,27 @@ body {
 }
 
 #CyberNumber {
-    top: 27vh;
+    /* top: 27vh; */
     background-color: #006a35;
     color: white;
     font-weight: 600;
     z-index: 1000;
 }
-
-.right-side-button-container a:hover {
-    right: 0vw;
+/* Left side button */
+.left-side-button-container{
+    position: fixed;
+    top: 65vh;
+    row-gap: 4px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Left side button */
 .left-side-button-container a {
     padding: 4px;
     border: 1px solid black;
     width: 218.56px;
-    position: fixed;
+    position: relative;
     left: -177.58px;
     text-decoration: none;
     color: white;
@@ -566,9 +520,12 @@ body {
     font-size: 18px;
     color: #0D2A5C;
 }
+.right-side-button-container a:hover {
+    right: 0vw;
+}
 
 #OnlineComplaint {
-    top: 65vh;
+    /* top: 65vh; */
     background-color: #ff681a;
     color: white;
     font-weight: 600;
@@ -576,7 +533,7 @@ body {
 }
 
 #ApplyChar {
-    top: 72vh;
+    /* top: 72vh; */
     background-color: #ffffff;
     color: red;
     font-weight: 600;
@@ -584,7 +541,7 @@ body {
 }
 
 #Passport {
-    top: 79vh;
+    /* top: 79vh; */
     background-color: #006a35;
     color: white;
     font-weight: 600;
@@ -1029,18 +986,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .department-name h1 {
-        font-size: 1.3rem;
-    }
-
-    .department-name h2 {
-        font-size: 1.1rem;
-    }
-
-    .emergency-contact .number {
-        font-size: 1.2rem;
-    }
-
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -1119,13 +1064,6 @@ body {
     .ptobox {
         border-radius: 1vh;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .emergency-contact {
-        font-weight: 500;
-        width: 45vw;
-        height: 7vh;
-        padding: 0;
     }
 
     .number {
