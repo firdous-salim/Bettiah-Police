@@ -93,6 +93,7 @@
     align-items: center;
     justify-content: center;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -106,6 +107,7 @@ body {
     color: #333;
     line-height: 1.6;
 }
+
 /* Header Styles */
 .top-header {
     display: flex;
@@ -119,6 +121,7 @@ body {
     border-bottom: 2px solid red;
     border-top: 2px solid red;
 }
+
 .DisplayFlexInLarge {
     display: flex;
 }
@@ -148,6 +151,7 @@ body {
     height: 21.7vh;
     margin-right: 15px;
 }
+
 .ptobox {
     display: flex;
     flex-direction: column;
@@ -169,13 +173,14 @@ body {
 }
 
 .headlines span {
-    font-size: clamp(18px,1.31vw,28px)  ;
+    font-size: clamp(18px, 1.31vw, 28px);
     color: var(--dark-blue);
     font-weight: 600;
 }
+
 /* Navbar Style  */
 .navbar {
-    font-size: clamp(16px,1.17vw,22px);
+    font-size: clamp(16px, 1.17vw, 22px);
     padding: 0 7.72vw;
     background-color: var(--navy);
     height: 6vh;
@@ -206,6 +211,11 @@ body {
 .navbar .dropdown-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+.carousel {
+    width: 83.54vw;
+}
+
 /* Hero Banner */
 .hero-banner {
     margin: 0 7.68vw;
@@ -216,58 +226,10 @@ body {
     color: white;
 }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.emergency-box {
-    background-color: rgba(255, 153, 51, 0.9);
-    color: #333;
-    padding: 15px 30px;
-    border-radius: 5px;
-    display: inline-block;
-    font-weight: 600;
-    font-size: 1.8rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
 /* Notices Section */
 .notices-section {
     background-color: var(--light-yellow);
-    padding: 30px 0;
-}
-
-/* .section-title {
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--dark-blue);
-    font-weight: 700;
-    position: relative;
-} */
-
-.section-title:after {
-    /* content: "";*/
-    display: block;
-    width: 80px;
-    height: 4px;
-    background-color: var(--saffron);
-    /* margin: 10px auto; */
+    padding: 1vh 7.72vw;
 }
 
 .alert-scroll {
@@ -295,7 +257,7 @@ body {
 
 /* Services Section */
 .services-section {
-    padding: 60px 0;
+    padding: 1vh 7.72vw;
     background-color: white;
 }
 
@@ -321,7 +283,14 @@ body {
     margin: 25px 0 15px;
 }
 
+.card-text {
+    padding: 0 2vw;
+    font-size: clamp(16px, 1.17vw, 22px);
+}
+
 .service-card .btn {
+    position: relative;
+    bottom: 0;
     background-color: var(--dark-blue);
     color: white;
     border: none;
@@ -338,21 +307,21 @@ body {
 
 /* CRIMAL AND gallery  */
 .criminal_recent_container {
-    padding: 0 6vw;
+    padding: 2.5vh 7.72vw;
     display: flex;
-    gap: 4vw;
-    height: 54vh;
+    justify-content: space-between;
+    height: 350px;
 }
 
 /* Gallery Section */
 .gallery-section {
     padding: 2vh 0;
-    width: 42vw;
+    width: 41vw;
     background-color: #f8f9fa;
 }
 
 .Criminal-container {
-    width: 42vw;
+    width: 41vw;
 }
 
 .gallery-item {
@@ -367,6 +336,9 @@ body {
 .rowclass {
     display: flex;
     overflow: hidden;
+    border-radius: 7px;
+    HEIGHT: 281px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .rowclass_track {
@@ -385,21 +357,21 @@ body {
 
     25%,
     45% {
-        transform: translateX(-296.34px);
+        transform: translateX(-20.59vw);
     }
 
     50%,
     70% {
-        transform: translateX(-589.68px)
+        transform: translateX(-41.38vw)
     }
 
     75%,
     95% {
-        transform: translateX(-880.02px);
+        transform: translateX(-62.10vw);
     }
 
     100% {
-        transform: translateX(-1172.36px)
+        transform: translateX(-82.72vw)
     }
 }
 
@@ -449,14 +421,15 @@ body {
 
 
 /* Right Side Button*/
-.right-side-button-container{
+.right-side-button-container {
     position: fixed;
     top: 13vh;
     right: 0;
     display: flex;
     flex-direction: column;
-    row-gap:4px;
+    row-gap: 4px;
 }
+
 .right-side-button-container a {
     position: relative;
     padding: 4px;
@@ -473,7 +446,6 @@ body {
 }
 
 #PoliceNumber {
-    /* top: 13vh; */
     background-color: #ff681a;
     color: white;
     font-weight: 600;
@@ -482,7 +454,6 @@ body {
 }
 
 #MahilaNumber {
-    /* top: 20vh; */
     background-color: #ffffff;
     color: red;
     font-weight: 600;
@@ -490,14 +461,14 @@ body {
 }
 
 #CyberNumber {
-    /* top: 27vh; */
     background-color: #006a35;
     color: white;
     font-weight: 600;
     z-index: 1000;
 }
+
 /* Left side button */
-.left-side-button-container{
+.left-side-button-container {
     position: fixed;
     top: 65vh;
     row-gap: 4px;
@@ -520,12 +491,12 @@ body {
     font-size: 18px;
     color: #0D2A5C;
 }
+
 .right-side-button-container a:hover {
     right: 0vw;
 }
 
 #OnlineComplaint {
-    /* top: 65vh; */
     background-color: #ff681a;
     color: white;
     font-weight: 600;
@@ -533,7 +504,6 @@ body {
 }
 
 #ApplyChar {
-    /* top: 72vh; */
     background-color: #ffffff;
     color: red;
     font-weight: 600;
@@ -541,7 +511,6 @@ body {
 }
 
 #Passport {
-    /* top: 79vh; */
     background-color: #006a35;
     color: white;
     font-weight: 600;
@@ -554,31 +523,31 @@ body {
 
 /* Main Content */
 .main-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin-bottom: 1vh;
+    padding: 1vh 7.72vw;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 2.19vw;
 }
 
 .left-column {
     display: flex;
     flex-direction: column;
-    flex: 2;
-    min-width: 300px;
+    width: 53vw;
 }
 
 .right-column {
     display: flex;
-    row-gap: 20px;
     flex-direction: column;
-    flex: 1;
-    min-width: 250px;
-}
-.social-media-main-container{
+    width: 28vw;
 }
 
+.social-media-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .section-title {
     font-weight: 700;
     color: #00308F;
@@ -631,8 +600,7 @@ body {
 }
 
 .press-item {
-    padding: 15px 0;
-    border-bottom: 1px dashed #ddd;
+    padding: 8px 0;
 }
 
 .press-item:last-child {
@@ -651,7 +619,38 @@ body {
 .press-item a:hover {
     color: #BD1E2C;
 }
+.Achivement_track{
+    column-gap: 5px;
+    display: flex;
+    width: calc(272.34px * 4);
+    animation: achivement_flow 50s linear infinite;
+}
+@keyframes achivement_flow {
+     0%,
+        20% {
+            transform: translateX(0);
+        }
 
+        25%,
+        45% {
+            transform: translateX(-29.31vw);
+        }
+
+        50%,
+        70% {
+            transform: translateX(-58.85vw)
+        }
+
+        75%,
+        95% {
+            transform: translateX(-88.85vw);
+        }
+
+        100% {
+            transform: translateX(-117.47vw)
+        }
+    
+}
 /* Most Wanted Criminals  */
 .Criminal-Title {
     font-weight: 700;
@@ -670,9 +669,8 @@ body {
 .Criminal-section1 {
     overflow-x: hidden;
     justify-content: space-evenly;
-    height: 47.5vh;
+    height: 300px;
     margin-top: -19px;
-    /* background-color: white; */
     border-radius: 0 0 8px 8px;
     padding-top: 20px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -687,7 +685,6 @@ body {
     height: 100%;
     position: relative;
     overflow: hidden;
-    /* height: 100%; */
     border-radius: 20px;
     text-align: center;
     display: flex;
@@ -775,6 +772,10 @@ body {
 
 /* Important Links Section */
 .important-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28vw;
     margin-top: -20px;
     background-color: white;
     border-radius: 0 0 8px 8px;
@@ -787,9 +788,8 @@ body {
 }
 
 .links-list li {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #ddd;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
 }
 
 .links-list li:last-child {
@@ -830,20 +830,17 @@ body {
 
 /* Statistics Section */
 .stats-section {
-    /* background-color: var(--dark-blue); */
+    padding: 1vh 7.72vw;
     color: white;
-    padding: 50px 0;
 }
 
 .stat-item {
     text-align: center;
-    padding: 20px;
 }
 
 .stat-number {
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 10px;
     color: white;
 }
 
@@ -854,7 +851,7 @@ body {
 
 /* Contact Section */
 .contact-section {
-    padding: 60px 0;
+    padding: 1vh 7.72vw;
     background-color: white;
 }
 
@@ -900,9 +897,8 @@ body {
 
 /* Footer */
 .footer {
-    background-color: var(--navy);
+    padding: 4vh 7.72vw;
     color: white;
-    padding: 60px 0 30px;
 }
 
 .footer h5 {
@@ -1160,7 +1156,7 @@ body {
     }
 
     .Criminal-container>h2 {
-       padding-top: 4px;
+        padding-top: 4px;
         text-align: center;
         font-size: 17px;
     }
@@ -1172,38 +1168,41 @@ body {
     .gallery-item {
         width: 300px;
     }
-    .rowclass{
+
+    .rowclass {
         /* padding: 0 12.5px; */
     }
-    .rowclass_track{
+
+    .rowclass_track {
         gap: 20px;
     }
+
     @keyframes item_flow {
 
-    0%,
-    20% {
-        transform: translateX(0);
-    }
+        0%,
+        20% {
+            transform: translateX(0);
+        }
 
-    25%,
-    45% {
-        transform: translateX(-312.5px);
-    }
+        25%,
+        45% {
+            transform: translateX(-312.5px);
+        }
 
-    50%,
-    70% {
-        transform: translateX(-626px)
-    }
+        50%,
+        70% {
+            transform: translateX(-626px)
+        }
 
-    75%,
-    95% {
-        transform: translateX(-950.5px);
-    }
+        75%,
+        95% {
+            transform: translateX(-950.5px);
+        }
 
-    100% {
-        transform: translateX(-1250px)
+        100% {
+            transform: translateX(-1250px)
+        }
     }
-}
 
 
 }
