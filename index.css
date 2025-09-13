@@ -571,9 +571,12 @@ body {
 
 .right-column {
     display: flex;
+    row-gap: 20px;
     flex-direction: column;
     flex: 1;
     min-width: 250px;
+}
+.social-media-main-container{
 }
 
 .section-title {
