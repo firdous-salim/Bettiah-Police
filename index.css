@@ -391,7 +391,8 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    background: rgb(194,12,41);
     color: white;
     padding: 15px;
     transform: translateY(100%);
@@ -583,7 +584,7 @@ body {
 
 .marquee-content {
     position: absolute;
-    animation: marquee 20s linear infinite;
+    animation: marquee 10s linear infinite;
 }
 
 .marquee-content:hover {
@@ -960,8 +961,29 @@ body {
     transition: all 0.3s;
 }
 
-.social-icons a:hover {
-    background-color: var(--saffron);
+.social-icons .facebook:hover {
+    background-color: rgb(24, 119, 242);
+    transform: translateY(-3px);
+}
+.social-icons .twitter:hover {
+    background-color:rgb(29, 161, 242);
+    transform: translateY(-3px);
+}
+.social-icons .instagram:hover {
+    background:linear-gradient(to bottom right,
+    rgb(221, 42, 123),
+        rgb(81, 91, 212),
+    rgb( 129, 52, 175),
+    rgb(245, 133, 41)
+    );
+    transform: translateY(-3px);
+}
+.social-icons .youtube:hover {
+    background-color:red;
+    transform: translateY(-3px);
+}
+.social-icons .linkdin:hover {
+    background-color:#0A66C2;
     transform: translateY(-3px);
 }
 
