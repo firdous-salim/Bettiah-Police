@@ -537,6 +537,7 @@ body {
 }
 
 .right-column {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 28vw;
@@ -772,15 +773,19 @@ body {
 
 /* Important Links Section */
 .important-links {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 28vw;
+    width:100%;
     margin-top: -20px;
     background-color: white;
     border-radius: 0 0 8px 8px;
     padding: 20px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+.faltu2{
+    padding-left: 0;
 }
 
 .links-list {
@@ -820,7 +825,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 15px;
+    margin-right:15px;
     transition: background-color 0.3s;
 }
 
@@ -856,7 +861,7 @@ body {
 }
 
 .contact-info {
-    background-color: var(--light-blue);
+    background-color: var(--dark-blue);
     border-radius: 8px;
     padding: 25px;
     height: 100%;
@@ -866,12 +871,16 @@ body {
     display: flex;
     align-items: flex-start;
     margin-bottom: 20px;
+    height: 96.2px;
 }
 
 .contact-icon {
+    height: 90%;
+    width: 8%;
+    display: flex;
+    align-items: center;
     font-size: 1.8rem;
-    color: var(--dark-blue);
-    margin-right: 15px;
+    color: white;
     min-width: 30px;
 }
 
