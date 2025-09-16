@@ -1011,11 +1011,14 @@ body {
 
 .copyright {
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 2vh 0;
+    padding: 1vh 0;
     /* margin-top: 40px; */
     text-align: center;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
+}
+.container p{
+    margin-bottom: 0;
 }
 
 /* Responsive Design */
