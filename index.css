@@ -584,7 +584,7 @@ body {
 
 .marquee-content {
     position: absolute;
-    animation: marquee 10s linear infinite;
+    animation: marquee 15s linear infinite;
 }
 
 .marquee-content:hover {
@@ -597,7 +597,7 @@ body {
     }
 
     100% {
-        top: -300%;
+        top: -200%;
     }
 }
 
@@ -1146,7 +1146,7 @@ body {
     }
 
     .main-container {
-        margin-top: 60vh;
+        margin-top: 45vh;
     }
 
     @keyframes crime_flow {
@@ -1192,16 +1192,8 @@ body {
         font-size: 17px;
     }
 
-    .faltu {
-        /* display: none; */
-    }
-
     .gallery-item {
         width: 300px;
-    }
-
-    .rowclass {
-        /* padding: 0 12.5px; */
     }
 
     .rowclass_track {
@@ -1233,6 +1225,19 @@ body {
         100% {
             transform: translateX(-1250px)
         }
+    }
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .left-column{
+        width: 100%;
+
+    }
+    .right-column{
+        width: 100%;
     }
 
 
