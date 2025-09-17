@@ -1239,6 +1239,24 @@ body {
     .right-column{
         width: 100%;
     }
-
-
+    /* <--notice-> */
+    .for-phone{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        row-gap: 10px;
+    }
+    /* <--headquarter--> */
+    /* .contact-info{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 40px;
+        
+    } */
+    .contact-item{
+        display: flex;
+        gap: 10px;
+    }
 }
