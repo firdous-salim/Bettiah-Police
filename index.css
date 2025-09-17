@@ -647,21 +647,21 @@ body {
 
     25%,
     45% {
-        transform: translateX(-29.31vw);
+        transform: translateX(-27.31vw)
     }
 
     50%,
     70% {
-        transform: translateX(-58.85vw)
+        transform: translateX(-53.85vw)
     }
 
     75%,
     95% {
-        transform: translateX(-88.85vw);
+        transform: translateX(-80.85vw)
     }
 
     100% {
-        transform: translateX(-117.47vw)
+        transform: translateX(-109.47vw)
     }
 
 }
