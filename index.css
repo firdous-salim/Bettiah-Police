@@ -1312,7 +1312,9 @@ body {
 
     /* <--hero-crousal--> */
     .police-tasvir {
-        height: 40vh
+        height: 30vh
     }
-
+    .hero-banner{
+        margin: -24vw 0;
+    }
 }
