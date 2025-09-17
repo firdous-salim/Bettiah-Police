@@ -216,7 +216,8 @@ body {
     width: 83.54vw;
     /* height: 72vh; */
 }
-.d-block{
+
+.d-block {
     height: 80vh;
 }
 
@@ -397,7 +398,7 @@ body {
     left: 0;
     right: 0;
     text-align: center;
-    background: rgb(194, 12, 41,0.7);
+    background: rgb(194, 12, 41, 0.7);
     color: white;
     padding: 15px;
     transform: translateY(100%);
@@ -414,7 +415,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgb(194, 12, 41,0.7);
+    background: rgb(194, 12, 41, 0.7);
     color: white;
     padding: 15px;
     transform: translateY(100%);
@@ -598,9 +599,17 @@ body {
 }
 
 @keyframes marquee {
-   0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); } /* total content ke hisaab se adjust karein */
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+
+    /* total content ke hisaab se adjust karein */
 }
+
 .press-item {
     padding: 8px 0;
 }
@@ -792,7 +801,8 @@ body {
 .sidebar {
     padding-left: 0;
 }
-.fb{
+
+.fb {
     position: relative;
     display: flex;
     align-items: center;
@@ -804,10 +814,12 @@ body {
     padding: 20px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
-.linkdecoreation{
+
+.linkdecoreation {
     text-decoration: none;
     color: white;
 }
+
 .links-list {
     list-style: none;
 }
@@ -1017,7 +1029,8 @@ body {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
 }
-.container p{
+
+.container p {
     margin-bottom: 0;
 }
 
@@ -1077,6 +1090,13 @@ body {
     /* Top Header */
     .top-header {
         font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mail-box {
+        font-size: 11px;
     }
 
     .lang-icon {
@@ -1267,13 +1287,15 @@ body {
     .right-column {
         width: 100%;
     }
+
     /* <--notice-> */
-    .for-phone{
+    .for-phone {
         display: flex;
-        flex-direction:column;
+        flex-direction: column;
         align-items: center;
         row-gap: 10px;
     }
+
     /* <--headquarter--> */
     /* .contact-info{
         height: 100%;
@@ -1283,8 +1305,17 @@ body {
         row-gap: 40px;
         
     } */
-    .contact-item{
+    .contact-item {
         display: flex;
         gap: 10px;
     }
+
+    /* <--hero-crousal--> */
+    .police-tasvir {
+        height: 40vh
+    }
+    .ptobox{
+        height: 25.5vh;
+    }
+
 }
