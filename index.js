@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 (function(){
   const viewport = document.getElementById('viewport');
   const track = document.getElementById('track');
@@ -186,7 +185,6 @@
   setup();
 
 })();
-=======
 // most wanted
 
 function createSlider(trackId, visibleCards = 3, delay = 3000) {
@@ -263,8 +261,3 @@ function startTripleSlider(trackId, visibleCards = 3, delay = 2500) {
 
 startTripleSlider("tripleEventTrack", 3, 2500);
 
-
-
-
-
->>>>>>> 132b8f82f56e7d1e008b21a13246773a74faba26
