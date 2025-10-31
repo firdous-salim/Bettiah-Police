@@ -6,7 +6,7 @@
     --police-red: #B00020;
     --police-red-bright: #E01E37;
     --gap: 12px;
-    --transition: 500ms;
+    --transition: 2500ms;
 
     .bg-grad-blue-gold {
         background: linear-gradient(120deg, var(--police-blue) 0%, #1E68FF 35%, var(--police-gold-bright) 100%);
@@ -418,11 +418,11 @@ body {
     background: rgb(194, 12, 41, 0.7);
     color: white;
     padding: 15px;
-    transform: translateY(100%);
+    transform: translateY(130%);
     transition: transform 0.3s ease;
 }
 
-.gallery-item:hover .gallery-caption {
+.item:hover .gallery-caption {
     transform: translateY(0);
 }
 
@@ -728,7 +728,7 @@ body {
 }
 
 .image_container{
-    height: 31vh;
+    height: 38vh;
 }
 .photo{
     object-fit: cover;
@@ -745,24 +745,24 @@ body {
     }
 
 .details {
-    padding-top: 18px;
-    text-align: left;
+    padding-top: 4px;
+    /* text-align: left; */
     overflow: hidden;
     position: relative;
 }
 
 .details h2 {
-    /* margin-bottom: 12px; */
-    font-size: 24px;
+    margin-bottom: 0;
+    font-size: 20px;
     text-align: center;
     letter-spacing: 1px;
 }
 
-.details p {
+/* .details p {
     margin: 6px 0;
     font-size: 15px;
     color: #ddd;
-}
+} */
 
 /* animation for criminal  */
 
@@ -813,6 +813,7 @@ body {
 }
 
 .placeholder {
+    background-color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -843,12 +844,12 @@ body {
     color: #212529
 }
 
-.criminalTrack {
+/* .criminalTrack {
     gap: 20px;
     display: flex;
     width: calc(14vw * 12);
     animation: crime_flow 20s linear infinite;
-}
+} */
 
 @keyframes crime_flow {
 

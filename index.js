@@ -1,262 +1,502 @@
-(function(){
-  const viewport = document.getElementById('viewport');
-  const track = document.getElementById('track');
+// function StartCarousal(viewportID, trackID,Slots) {
+//   (function () {
+//     const viewport = document.getElementById(viewportID);
+//     const track = document.getElementById(trackID);
 
-  // settings
-  const visibleSlots = 3;        // always reserve 3 slots in viewport width
-  const step = 1;                // move one by one
-  const pauseBetween = 1000;     // ms to pause between slides
-  const transitionTime = 500;    // must match CSS var(--transition)
-  let autoplayTimer = null;
+//     // settings
+//     const visibleSlots = Slots;        // always reserve 3 slots in viewport width
+//     const step = 1;                // move one by one
+//     const pauseBetween = 1500;     // ms to pause between slides
+//     const transitionTime = 2500;    // must match CSS var(--transition)
+//     let autoplayTimer = null;
 
-  function setup() {
-    // grab original .item nodes that user placed (ignore any clones or other nodes)
-    const originalItemsAll = Array.from(track.children).filter(n => n.classList && n.classList.contains('item'));
+//     function setup() {
+//       // grab original .item nodes that user placed (ignore any clones or other nodes)
+//       const originalItemsAll = Array.from(track.children).filter(n => n.classList && n.classList.contains('item'));
+//       const n = originalItemsAll.length;
+
+//       // remove any placeholder nodes inside viewport (from earlier runs)
+//       const existingPlaceholder = document.querySelector('.placeholder');
+//       if (existingPlaceholder) existingPlaceholder.remove();
+
+//       // case 0: no items -> show placeholder and exit
+//       if (n === 0) {
+//         track.innerHTML = '';
+//         const ph = document.createElement('div');
+//         ph.className = 'placeholder';
+//         ph.innerHTML = '<strong>No photo is there</strong>';
+//         viewport.innerHTML = '';
+//         viewport.appendChild(ph);
+//         return;
+//       }
+
+//       // clear track and rebuild depending on number of items
+//       track.innerHTML = '';
+
+//       // If less than 3 items: we DO NOT want sliding; we want fixed slots with empty fillers
+//       if (n < visibleSlots) {
+//         // append original items in their original order
+//         originalItemsAll.forEach(it => track.appendChild(it));
+
+//         // create filler empty slots to reach visibleSlots count
+//         const toAdd = visibleSlots - n;
+//         for (let i = 0; i < toAdd; i++) {
+//           const empty = document.createElement('div');
+//           empty.className = 'item empty';
+//           // keep it visually subtle (lighter background)
+//           empty.style.background = 'linear-gradient(180deg,#f8f9fb,#f2f4f7)';
+//           empty.innerHTML = ''; // empty content – will appear as blank slot
+//           track.appendChild(empty);
+//         }
+
+//         // compute widths so all three slots shown and items don't stretch
+//         function setSizesNoSlide() {
+//           const viewportWidth = viewport.clientWidth;
+//           const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 12;
+//           const totalGap = gap * (visibleSlots - 1);
+//           const itemWidth = (viewportWidth - totalGap) / visibleSlots;
+//           Array.from(track.children).forEach(child => {
+//             child.style.width = itemWidth + 'px';
+//           });
+//           // ensure track is positioned at start (no transform)
+//           track.style.transition = 'none';
+//           track.style.transform = 'translateX(0)';
+//         }
+
+//         setSizesNoSlide();
+//         // resize handler
+//         let debounce;
+//         window.addEventListener('resize', () => {
+//           clearTimeout(debounce);
+//           debounce = setTimeout(setSizesNoSlide, 120);
+//         });
+
+//         // ensure autoplay is disabled for <3 items
+//         stopAutoplay();
+//         return;
+//       }
+
+//       // For n >= visibleSlots: previous behavior with clones, autoplay and looping
+//       const clonesAtStart = visibleSlots;
+//       const clonesAtEnd = visibleSlots;
+
+//       // nodes: last-clones, originals, first-clones
+//       const nodes = [];
+//       const lastSlice = originalItemsAll.slice(-clonesAtStart);
+//       lastSlice.forEach(node => {
+//         const c = node.cloneNode(true);
+//         c.classList.add('clone');
+//         nodes.push(c);
+//       });
+//       originalItemsAll.forEach(node => nodes.push(node));
+//       const firstSlice = originalItemsAll.slice(0, clonesAtEnd);
+//       firstSlice.forEach(node => {
+//         const c = node.cloneNode(true);
+//         c.classList.add('clone');
+//         nodes.push(c);
+//       });
+
+//       nodes.forEach(nod => track.appendChild(nod));
+
+//       // set sizes and layout
+//       let slidesToShow = visibleSlots;
+//       function setSizes() {
+//         const viewportWidth = viewport.clientWidth;
+//         const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 12;
+//         const totalGap = gap * (slidesToShow - 1);
+//         const itemWidth = (viewportWidth - totalGap) / slidesToShow;
+//         Array.from(track.children).forEach(child => {
+//           child.style.width = itemWidth + 'px';
+//         });
+
+//         // initial placement to show first original at index = clonesAtStart
+//         track.style.transition = 'none';
+//         currentIndex = clonesAtStart;
+//         updateTransform();
+//         requestAnimationFrame(() => {
+//           void track.offsetWidth;
+//           track.style.transition = `transform ${transitionTime}ms ease`;
+//         });
+//       }
+
+//       let currentIndex = clonesAtStart;
+//       function updateTransform() {
+//         const firstChild = track.children[0];
+//         if (!firstChild) return;
+//         const itemWidth = firstChild.getBoundingClientRect().width;
+//         const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 12;
+//         const move = (itemWidth + gap) * currentIndex * -1;
+//         track.style.transform = `translateX(${move}px)`;
+//       }
+
+//       let isTransitioning = false;
+//       function next() {
+//         if (isTransitioning) return;
+//         isTransitioning = true;
+//         currentIndex += step;
+//         updateTransform();
+//         setTimeout(() => {
+//           isTransitioning = false;
+//           const total = track.children.length;
+//           const clonesStart = clonesAtStart;
+//           const clonesEndBoundary = total - clonesAtEnd;
+//           if (currentIndex >= clonesEndBoundary) {
+//             // teleport
+//             currentIndex = clonesStart + (currentIndex - clonesEndBoundary);
+//             track.style.transition = 'none';
+//             updateTransform();
+//             requestAnimationFrame(() => {
+//               void track.offsetWidth;
+//               track.style.transition = `transform ${transitionTime}ms ease`;
+//             });
+//           }
+//         }, transitionTime);
+//       }
+
+//       function startAutoplay() {
+//         stopAutoplay();
+//         autoplayTimer = setInterval(() => {
+//           next();
+//         }, pauseBetween + transitionTime);
+//       }
+//       function stopAutoplay() {
+//         if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+//       }
+
+//       setSizes();
+//       startAutoplay();
+//       viewport.addEventListener('mouseenter', stopAutoplay);
+//       viewport.addEventListener('mouseleave', startAutoplay);
+
+//       // responsive: only recalc sizes (do not change logic) on resize
+//       window.addEventListener('resize', () => {
+//         clearTimeout(window._carouselResizeDebounce);
+//         window._carouselResizeDebounce = setTimeout(() => {
+//           // Rebuild entire carousel to keep clone math safe
+//           setup();
+//         }, 120);
+//       }, { passive: true });
+//     } // end setup
+
+//     function stopAutoplay() {
+//       if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+//     }
+
+//     // initial call
+//     setup();
+
+//   })();
+//   // most wanted
+
+//   function createSlider(trackId, visibleCards = 3, delay = 3000) {
+//     const track = document.getElementById(trackId);
+//     const cards = Array.from(track.children);
+//     const totalCards = cards.length;
+//     const cardWidthPercent = 100 / visibleCards;
+
+//     // Clone first few cards to end for smooth infinite scroll
+//     for (let i = 0; i < visibleCards; i++) {
+//       const clone = cards[i].cloneNode(true);
+//       track.appendChild(clone);
+//     }
+
+//     let index = 0;
+
+//     setInterval(() => {
+//       index++;
+//       track.style.transition = "transform 1s linear";
+//       track.style.transform = `translateX(-${index * cardWidthPercent}%)`;
+
+//       // Reset position after transition finishes
+//       if (index >= totalCards) {
+//         setTimeout(() => {
+//           track.style.transition = "none"; // remove animation
+//           track.style.transform = `translateX(0)`; // reset position
+//           index = 0;
+//         }, 1000); // must match transition duration
+//       }
+//     }, delay);
+//   }
+
+//   // Initialize sliders
+//   createSlider('wantedTrack', 3, 3000);
+//   createSlider('eventTrack', 3, 3500);
+
+
+
+
+
+//   // ...........................................Last sliding..............................................
+
+
+//   function startTripleSlider(trackId, visibleCards = 3, delay = 2500) {
+//     const track = document.getElementById(trackId);
+//     const cards = Array.from(track.children);
+//     const totalCards = cards.length;
+
+//     // Clone first few cards for seamless infinite scroll
+//     for (let i = 0; i < visibleCards; i++) {
+//       const clone = cards[i].cloneNode(true);
+//       track.appendChild(clone);
+//     }
+
+//     let index = 0;
+
+//     function slide() {
+//       index++;
+//       track.style.transition = "transform 0.8s ease";
+//       track.style.transform = `translateX(-${(100 / visibleCards) * index}%)`;
+
+//       // Reset without visual jump
+//       if (index === totalCards) {
+//         setTimeout(() => {
+//           track.style.transition = "none";
+//           track.style.transform = "translateX(0)";
+//           index = 0;
+//         }, 800); // match transition duration
+//       }
+//     }
+
+//     setInterval(slide, delay);
+//   }
+
+//   startTripleSlider("tripleEventTrack", 3, 2500);
+// }
+
+
+
+
+// Carousel class — instance-based, safe for concurrent calls
+class Carousel {
+  constructor(viewportID, trackID, visibleSlots = 3, {
+    step = 1,
+    pauseBetween = 1500,
+    transitionTime = 2500,
+    gapVar = '--gap'
+  } = {}) {
+    this.viewport = document.getElementById(viewportID);
+    this.track = document.getElementById(trackID);
+    if (!this.viewport || !this.track) {
+      throw new Error(`Invalid viewport or track id: ${viewportID}, ${trackID}`);
+    }
+
+    // settings
+    this.visibleSlots = visibleSlots;
+    this.step = step;
+    this.pauseBetween = pauseBetween;
+    this.transitionTime = transitionTime;
+    this.gapVar = gapVar;
+
+    // instance state
+    this.autoplayTimer = null;
+    this.resizeDebounce = null;
+    this.isDestroyed = false;
+    this.currentIndex = 0;
+    this.isTransitioning = false;
+
+    // bound handlers so we can remove them later
+    this._onMouseEnter = this.stopAutoplay.bind(this);
+    this._onMouseLeave = this.startAutoplay.bind(this);
+    this._onResize = this._onResize.bind(this);
+  }
+
+  // if you need any async setup (e.g., loading images), you can await this
+  async init() {
+    this._setup();
+  }
+
+  _setup() {
+    // take original items (only .item nodes, not clones)
+    const originalItemsAll = Array.from(this.track.children).filter(n => n.classList && n.classList.contains('item'));
     const n = originalItemsAll.length;
 
-    // remove any placeholder nodes inside viewport (from earlier runs)
-    const existingPlaceholder = document.querySelector('.placeholder');
+    // remove placeholders only inside this viewport (safer)
+    const existingPlaceholder = this.viewport.querySelector('.placeholder');
     if (existingPlaceholder) existingPlaceholder.remove();
 
-    // case 0: no items -> show placeholder and exit
+    // case 0: no items
     if (n === 0) {
-      track.innerHTML = '';
+      this.track.innerHTML = '';
       const ph = document.createElement('div');
       ph.className = 'placeholder';
       ph.innerHTML = '<strong>No photo is there</strong>';
-      viewport.innerHTML = '';
-      viewport.appendChild(ph);
+      this.viewport.innerHTML = '';
+      this.viewport.appendChild(ph);
+      // make sure autoplay disabled
+      this.stopAutoplay();
       return;
     }
 
-    // clear track and rebuild depending on number of items
-    track.innerHTML = '';
+    // clear track and rebuild the nodes for this instance
+    // NOTE: We clone nodes when necessary but avoid reusing nodes that might
+    // belong to other carousels.
+    const originals = originalItemsAll.map(node => node.cloneNode(true));
+    this.track.innerHTML = '';
 
-    // If less than 3 items: we DO NOT want sliding; we want fixed slots with empty fillers
-    if (n < visibleSlots) {
-      // append original items in their original order
-      originalItemsAll.forEach(it => track.appendChild(it));
+    // small-item case: show fixed slots
+    if (n < this.visibleSlots) {
+      originals.forEach(it => this.track.appendChild(it));
 
-      // create filler empty slots to reach visibleSlots count
-      const toAdd = visibleSlots - n;
-      for (let i=0;i<toAdd;i++){
+      const toAdd = this.visibleSlots - n;
+      for (let i = 0; i < toAdd; i++) {
         const empty = document.createElement('div');
         empty.className = 'item empty';
-        // keep it visually subtle (lighter background)
         empty.style.background = 'linear-gradient(180deg,#f8f9fb,#f2f4f7)';
-        empty.innerHTML = ''; // empty content – will appear as blank slot
-        track.appendChild(empty);
+        this.track.appendChild(empty);
       }
 
-      // compute widths so all three slots shown and items don't stretch
-      function setSizesNoSlide(){
-        const viewportWidth = viewport.clientWidth;
-        const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 12;
-        const totalGap = gap * (visibleSlots - 1);
-        const itemWidth = (viewportWidth - totalGap) / visibleSlots;
-        Array.from(track.children).forEach(child => {
+      const setSizesNoSlide = () => {
+        const viewportWidth = this.viewport.clientWidth;
+        const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(this.gapVar)) || 12;
+        const totalGap = gap * (this.visibleSlots - 1);
+        const itemWidth = (viewportWidth - totalGap) / this.visibleSlots;
+        Array.from(this.track.children).forEach(child => {
           child.style.width = itemWidth + 'px';
         });
-        // ensure track is positioned at start (no transform)
-        track.style.transition = 'none';
-        track.style.transform = 'translateX(0)';
-      }
+        this.track.style.transition = 'none';
+        this.track.style.transform = 'translateX(0)';
+      };
 
       setSizesNoSlide();
-      // resize handler
-      let debounce;
-      window.addEventListener('resize', ()=> {
-        clearTimeout(debounce);
-        debounce = setTimeout(setSizesNoSlide, 120);
-      });
+      // add resize listener (instance-specific)
+      window.addEventListener('resize', () => {
+        clearTimeout(this.resizeDebounce);
+        this.resizeDebounce = setTimeout(setSizesNoSlide, 120);
+      }, { passive: true });
 
-      // ensure autoplay is disabled for <3 items
-      stopAutoplay();
+      this.stopAutoplay();
       return;
     }
 
-    // For n >= visibleSlots: previous behavior with clones, autoplay and looping
-    const clonesAtStart = visibleSlots;
-    const clonesAtEnd = visibleSlots;
+    // n >= visibleSlots -> cloning for infinite scroll
+    const clonesAtStart = this.visibleSlots;
+    const clonesAtEnd = this.visibleSlots;
 
-    // nodes: last-clones, originals, first-clones
     const nodes = [];
-    const lastSlice = originalItemsAll.slice(-clonesAtStart);
+    const lastSlice = originals.slice(-clonesAtStart);
     lastSlice.forEach(node => {
       const c = node.cloneNode(true);
       c.classList.add('clone');
       nodes.push(c);
     });
-    originalItemsAll.forEach(node => nodes.push(node));
-    const firstSlice = originalItemsAll.slice(0, clonesAtEnd);
+    originals.forEach(node => nodes.push(node));
+    const firstSlice = originals.slice(0, clonesAtEnd);
     firstSlice.forEach(node => {
       const c = node.cloneNode(true);
       c.classList.add('clone');
       nodes.push(c);
     });
 
-    nodes.forEach(nod => track.appendChild(nod));
+    nodes.forEach(nod => this.track.appendChild(nod));
 
-    // set sizes and layout
-    let slidesToShow = visibleSlots;
-    function setSizes(){
-      const viewportWidth = viewport.clientWidth;
-      const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 12;
-      const totalGap = gap * (slidesToShow - 1);
-      const itemWidth = (viewportWidth - totalGap) / slidesToShow;
-      Array.from(track.children).forEach(child => {
+    // set sizes and placement
+    this.slidesToShow = this.visibleSlots;
+    const setSizes = () => {
+      const viewportWidth = this.viewport.clientWidth;
+      const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(this.gapVar)) || 12;
+      const totalGap = gap * (this.slidesToShow - 1);
+      const itemWidth = (viewportWidth - totalGap) / this.slidesToShow;
+      Array.from(this.track.children).forEach(child => {
         child.style.width = itemWidth + 'px';
       });
 
-      // initial placement to show first original at index = clonesAtStart
-      track.style.transition = 'none';
-      currentIndex = clonesAtStart;
-      updateTransform();
-      requestAnimationFrame(()=> {
-        void track.offsetWidth;
-        track.style.transition = `transform ${transitionTime}ms ease`;
+      // initial placement
+      this.track.style.transition = 'none';
+      this.currentIndex = clonesAtStart;
+      this._updateTransform();
+      requestAnimationFrame(() => {
+        void this.track.offsetWidth;
+        this.track.style.transition = `transform ${this.transitionTime}ms ease`;
       });
-    }
-
-    let currentIndex = clonesAtStart;
-    function updateTransform() {
-      const firstChild = track.children[0];
-      if (!firstChild) return;
-      const itemWidth = firstChild.getBoundingClientRect().width;
-      const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 12;
-      const move = (itemWidth + gap) * currentIndex * -1;
-      track.style.transform = `translateX(${move}px)`;
-    }
-
-    let isTransitioning = false;
-    function next() {
-      if (isTransitioning) return;
-      isTransitioning = true;
-      currentIndex += step;
-      updateTransform();
-      setTimeout(()=> {
-        isTransitioning = false;
-        const total = track.children.length;
-        const clonesStart = clonesAtStart;
-        const clonesEndBoundary = total - clonesAtEnd;
-        if (currentIndex >= clonesEndBoundary) {
-          // teleport
-          currentIndex = clonesStart + (currentIndex - clonesEndBoundary);
-          track.style.transition = 'none';
-          updateTransform();
-          requestAnimationFrame(()=>{
-            void track.offsetWidth;
-            track.style.transition = `transform ${transitionTime}ms ease`;
-          });
-        }
-      }, transitionTime);
-    }
-
-    function startAutoplay(){
-      stopAutoplay();
-      autoplayTimer = setInterval(()=> {
-        next();
-      }, pauseBetween + transitionTime);
-    }
-    function stopAutoplay(){
-      if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
-    }
+    };
 
     setSizes();
-    startAutoplay();
-    viewport.addEventListener('mouseenter', stopAutoplay);
-    viewport.addEventListener('mouseleave', startAutoplay);
 
-    // responsive: only recalc sizes (do not change logic) on resize
-    window.addEventListener('resize', ()=> {
-      clearTimeout(window._carouselResizeDebounce);
-      window._carouselResizeDebounce = setTimeout(()=> {
-        // Rebuild entire carousel to keep clone math safe
-        setup();
-      }, 120);
-    }, {passive:true});
-  } // end setup
+    // transition end safety using a timeout matching transitionTime
+    this._next = () => {
+      if (this.isTransitioning) return;
+      this.isTransitioning = true;
+      this.currentIndex += this.step;
+      this._updateTransform();
 
-  function stopAutoplay(){
-    if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
-  }
-
-  // initial call
-  setup();
-
-})();
-// most wanted
-
-function createSlider(trackId, visibleCards = 3, delay = 3000) {
-    const track = document.getElementById(trackId);
-    const cards = Array.from(track.children);
-    const totalCards = cards.length;
-    const cardWidthPercent = 100 / visibleCards;
-
-    // Clone first few cards to end for smooth infinite scroll
-    for (let i = 0; i < visibleCards; i++) {
-        const clone = cards[i].cloneNode(true);
-        track.appendChild(clone);
-    }
-
-    let index = 0;
-
-    setInterval(() => {
-        index++;
-        track.style.transition = "transform 1s linear";
-        track.style.transform = `translateX(-${index * cardWidthPercent}%)`;
-
-        // Reset position after transition finishes
-        if (index >= totalCards) {
-            setTimeout(() => {
-                track.style.transition = "none"; // remove animation
-                track.style.transform = `translateX(0)`; // reset position
-                index = 0;
-            }, 1000); // must match transition duration
-        }
-    }, delay);
-}
-
-// Initialize sliders
-createSlider('wantedTrack', 3, 3000);
-createSlider('eventTrack', 3, 3500);
-
-
-
-
-
-// ...........................................Last sliding..............................................
-
-
-function startTripleSlider(trackId, visibleCards = 3, delay = 2500) {
-  const track = document.getElementById(trackId);
-  const cards = Array.from(track.children);
-  const totalCards = cards.length;
-
-  // Clone first few cards for seamless infinite scroll
-  for (let i = 0; i < visibleCards; i++) {
-    const clone = cards[i].cloneNode(true);
-    track.appendChild(clone);
-  }
-
-  let index = 0;
-
-  function slide() {
-    index++;
-    track.style.transition = "transform 0.8s ease";
-    track.style.transform = `translateX(-${(100 / visibleCards) * index}%)`;
-
-    // Reset without visual jump
-    if (index === totalCards) {
       setTimeout(() => {
-        track.style.transition = "none";
-        track.style.transform = "translateX(0)";
-        index = 0;
-      }, 800); // match transition duration
+        this.isTransitioning = false;
+        const total = this.track.children.length;
+        const clonesStart = clonesAtStart;
+        const clonesEndBoundary = total - clonesAtEnd;
+        if (this.currentIndex >= clonesEndBoundary) {
+          // teleport (no transition)
+          this.currentIndex = clonesStart + (this.currentIndex - clonesEndBoundary);
+          this.track.style.transition = 'none';
+          this._updateTransform();
+          requestAnimationFrame(() => {
+            void this.track.offsetWidth;
+            this.track.style.transition = `transform ${this.transitionTime}ms ease`;
+          });
+        }
+      }, this.transitionTime);
+    };
+
+    // start autoplay
+    this.startAutoplay();
+
+    // mouse handlers per-instance
+    this.viewport.addEventListener('mouseenter', this._onMouseEnter);
+    this.viewport.addEventListener('mouseleave', this._onMouseLeave);
+
+    // instance-specific resize listener
+    window.addEventListener('resize', this._onResize, { passive: true });
+  }
+
+  _updateTransform() {
+    const firstChild = this.track.children[0];
+    if (!firstChild) return;
+    const itemWidth = firstChild.getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(this.gapVar)) || 12;
+    const move = (itemWidth + gap) * this.currentIndex * -1;
+    this.track.style.transform = `translateX(${move}px)`;
+  }
+
+  startAutoplay() {
+    this.stopAutoplay();
+    this.autoplayTimer = setInterval(() => {
+      this._next();
+    }, this.pauseBetween + this.transitionTime);
+  }
+
+  stopAutoplay() {
+    if (this.autoplayTimer) {
+      clearInterval(this.autoplayTimer);
+      this.autoplayTimer = null;
     }
   }
 
-  setInterval(slide, delay);
+  _onResize() {
+    clearTimeout(this.resizeDebounce);
+    this.resizeDebounce = setTimeout(() => {
+      // rebuild (safe) — only if still present
+      if (this.isDestroyed) return;
+      // Re-run setup to recalculate clones & sizes
+      this._setup();
+    }, 120);
+  }
+
+  // call this to teardown listeners & timers
+  destroy() {
+    this.stopAutoplay();
+    this.viewport.removeEventListener('mouseenter', this._onMouseEnter);
+    this.viewport.removeEventListener('mouseleave', this._onMouseLeave);
+    window.removeEventListener('resize', this._onResize);
+    this.isDestroyed = true;
+  }
 }
 
-startTripleSlider("tripleEventTrack", 3, 2500);
+
+const c1 = new Carousel('viewport1', 'track1', 2, { pauseBetween: 1500, transitionTime: 2000 });
+c1.init(); // async-safe init
+
+const c2 = new Carousel('viewport', 'track', 3, { pauseBetween: 1700, transitionTime: 2000 });
+c2.init();
+
+const c3 = new Carousel('viewport2', 'track2', 2, { pauseBetween: 1500, transitionTime: 2000 });
+c3.init();
