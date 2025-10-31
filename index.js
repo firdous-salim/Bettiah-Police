@@ -260,4 +260,3 @@ function startTripleSlider(trackId, visibleCards = 3, delay = 2500) {
 }
 
 startTripleSlider("tripleEventTrack", 3, 2500);
-

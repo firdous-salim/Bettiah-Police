@@ -1188,20 +1188,11 @@ body {
     .top-header {
         font-size: 12px;
         display: flex;
-        justify-content:space-between;
+        justify-content: center;
         align-items: center;
         background:
             radial-gradient(1000px 600px at 0% 100%, rgba(255, 255, 255, 0.10), transparent 60%),
             linear-gradient(120deg, #B00020 0%, #E01E37 25%, #0B3D91 75%, #0D2A5C 100%);
-    }
-    .top-header1{
-        justify-content: space-between;
-    }
-    .hide-phone{
-        display: none;
-    }
-    .size-increase{
-        font-size:20px;
     }
 
     .mail-box {
