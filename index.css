@@ -5,6 +5,7 @@
     --police-gold-bright: #F5C518;
     --police-red: #B00020;
     --police-red-bright: #E01E37;
+<<<<<<< HEAD
     --gap: 12px;
     --transition: 500ms;
     .bg-grad-blue-gold {
@@ -19,6 +20,8 @@
         background: linear-gradient(125deg, var(--police-red-bright) 0%, var(--police-red) 25%, #1E68FF 70%, var(--police-blue-dark) 100%);
     }
 
+=======
+>>>>>>> 132b8f82f56e7d1e008b21a13246773a74faba26
 
     --dark-blue: #0d4e8a;
     --saffron: #f7b900;
@@ -27,6 +30,22 @@
     --light-blue: #e3f2fd;
     --red: #f7000d;
 }
+
+/* Class definitions should be OUTSIDE :root */
+
+/* Blue-Golden Gradient */
+.bg-grad-blue-gold {
+    background: linear-gradient(120deg, var(--police-blue) 0%, #1E68FF 35%, var(--police-gold-bright) 100%);
+}
+
+.bg-grad-gold-red {
+    background: linear-gradient(120deg, var(--police-gold-bright) 0%, #FFB000 30%, var(--police-red-bright) 100%);
+}
+
+.bg-grad-red-blue {
+    background: linear-gradient(125deg, var(--police-red-bright) 0%, var(--police-red) 25%, #1E68FF 70%, var(--police-blue-dark) 100%);
+}
+
 
 /* Blue-Golden Gradiant */
 
@@ -577,7 +596,8 @@ body {
 
 /* Press Release Section */
 .press-release {
-    margin-top: -38px;
+    /* margin-top: -38px; */
+    width: 55vw;
     background-color: white;
     border-radius: 0 0 8px 8px;
     padding: 20px;
@@ -681,6 +701,7 @@ body {
     padding: 9px 0;
     height: 42px;
 }
+
 .Criminal-section1 {
     overflow-x: hidden;
     justify-content: space-evenly;
@@ -1097,9 +1118,11 @@ body {
 .container p {
     margin-bottom: 0;
 }
-.bottomnav{
+
+.bottomnav {
     display: none;
 }
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .hero-content h1 {
@@ -1159,9 +1182,9 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-         background:
-        radial-gradient(1000px 600px at 0% 100%, rgba(255, 255, 255, 0.10), transparent 60%),
-        linear-gradient(120deg, #B00020 0%, #E01E37 25%, #0B3D91 75%, #0D2A5C 100%);
+        background:
+            radial-gradient(1000px 600px at 0% 100%, rgba(255, 255, 255, 0.10), transparent 60%),
+            linear-gradient(120deg, #B00020 0%, #E01E37 25%, #0B3D91 75%, #0D2A5C 100%);
     }
 
     .mail-box {
@@ -1181,7 +1204,7 @@ body {
     }
 
     /* Main Header  */
- 
+
 
     .main-header {
         width: 100%;
@@ -1380,14 +1403,17 @@ body {
     .police-tasvir {
         height: 30vh
     }
-    .hero-banner{
+
+    .hero-banner {
         margin: -18vw 0;
     }
+
     .section-title {
         text-align: center;
     }
+
     /* bottom nav bar  */
-    .bottomnav{
+    .bottomnav {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -1396,9 +1422,537 @@ body {
         right: 0;
         left: 0;
         height: 6vh;
-         background:
-        radial-gradient(1000px 600px at 0% 100%, rgba(255, 255, 255, 0.10), transparent 60%),
-        linear-gradient(120deg, #B00020 0%, #E01E37 25%, #0B3D91 75%, #0D2A5C 100%);
+        background:
+            radial-gradient(1000px 600px at 0% 100%, rgba(255, 255, 255, 0.10), transparent 60%),
+            linear-gradient(120deg, #B00020 0%, #E01E37 25%, #0B3D91 75%, #0D2A5C 100%);
+    }
+}
+
+/* wanted section */
+
+#wanted-section {
+    display: flex;
+}
+
+.dualZone_containerUnique {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    height: 40vh;
+    padding-left: 7.5vw;
+    box-sizing: border-box;
+}
+
+#slideBox_unique {
+
+    width: 42vw;
+    height: 35vh;
+    margin-top: 3.5vh;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+#card_unique {
+    height: 35vh;
+}
+
+.slideBox_unique {
+    flex: 1;
+    width: 42vw;
+    height: 34vh;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.headerUnique {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #c20000, #0046c7);
+    color: white;
+    padding: 12px 18px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.headerUnique i {
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+.sliderView_unique {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.track_unique {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.card_unique {
+    flex: 0 0 calc(33.33% - 10px);
+    /* Show 3 cards at once */
+    margin: 5px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.card_unique img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #eee;
+}
+
+.card_unique p {
+    margin: 6px 0 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .dualZone_containerUnique {
+        flex-direction: column;
+        padding: 20px 5vw;
+        height: auto;
+    }
+
+    .card_unique {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+/* left hal ke gathi bedhi */
+
+#dualSlideBox {
+    width: 42vw;
+    height: 34vh;
+    overflow: hidden;
+    margin-left: 20px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dualHeader {
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #c20000, #0046c7);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dualSliderView {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.dualTrack {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.dualCard {
+    flex: 0 0 50%;
+    /* 👈 shows 2 images per view */
+    padding: 10px;
+}
+
+.dualCard img {
+    width: 100%;
+    height: 27vh;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+/* mid section  */
+
+#mid_container {
+    height: auto;
+    width: auto;
+    display: flex;
+    gap: 1vw;
+    margin-left: 8vw;
+}
+
+/* .........................................last slide  */
+
+#tripleSlideBox {
+    width: 56vw;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tripleHeader {
+    font-weight: 600;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #c20000, #0046c7);
+    padding: 12px 20px;
+    border-bottom: 2px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 8px; */
+    color: ghostwhite;
+}
+
+.tripleSliderView {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.tripleTrack {
+    display: flex;
+    transition: transform 0.8s ease;
+}
+
+.tripleCard {
+    flex: 0 0 33.333%;
+    /* 3 images visible */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.tripleCard img {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tripleCard img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .tripleCard {
+        flex: 0 0 50%;
+    }
+
+    /* 2 visible on tablets */
+}
+
+@media (max-width: 600px) {
+    .tripleCard {
+        flex: 0 0 100%;
+    }
+
+    /* 1 visible on phones */
+}
+
+
+/* ....................responsove desgine................ */
+
+
+/* ============================================= */
+/* RESPONSIVE CSS FOR ALL DEVICES                */
+/* ============================================= */
+
+/* ================= Desktop: > 1024px ================= */
+@media (min-width: 1025px) {
+    /* Keep original desktop styles as is */
+}
+
+/* ================= Tablet: 768px – 1024px ================= */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .main-header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+    }
+
+    .logo {
+        height: 15vh;
+        margin-bottom: 10px;
+    }
+
+    .ptobox {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero-banner {
+        min-height: 350px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-container {
+        flex-direction: column;
+        padding: 1vh 5vw;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+
+    .criminal_recent_container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .side {
+        width: 45%;
+        margin: 0 auto 20px auto;
+        height: auto;
+    }
+
+    .criminalTrack {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .gallery-section,
+    .Criminal-container {
+        width: 100%;
+    }
+
+    .card_unique {
+        flex: 0 0 45%;
+        margin: 5px;
+    }
+
+    .dualCard {
+        flex: 0 0 48%;
+    }
+
+    .tripleCard {
+        flex: 0 0 48%;
+    }
+}
+
+/* ================= Mobile: < 767px ================= */
+@media (max-width: 767px) {
+
+    /* Top Header */
+    .top-header {
+        font-size: 12px;
+        flex-direction: column;
+        text-align: center;
+        padding: 5px 2vw;
+        height: auto;
+    }
+
+    .main-header {
+        flex-direction: column;
+        height: auto;
+        padding: 5px 2vw;
+        gap: 10px;
+    }
+
+    .logo {
+        height: 10vh;
+        margin: 0 auto;
+    }
+
+    .ptobox {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero-banner {
+        min-height: 300px;
+        margin: 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Navbar */
+    .navbar {
+        font-size: 14px;
+        padding: 0 3vw;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .navbar .nav-link {
+        padding: 10px 15px !important;
+        font-size: 14px;
+    }
+
+    /* Main content */
+    .main-container {
+        flex-direction: column;
+        padding: 1vh 3vw;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+
+    /* Criminal section */
+    .criminal_recent_container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .side {
+        width: 90%;
+        margin: 10px auto;
+        height: auto;
+    }
+
+    .criminalTrack {
+        width: 100%;
+        gap: 10px;
+    }
+
+    /* Gallery */
+    .gallery-section,
+    .Criminal-container {
+        width: 100vw;
+        padding: 0 3vw;
+    }
+
+    .gallery-item {
+        width: 90%;
+        margin: 0 auto 15px auto;
+        height: 200px;
+    }
+
+    .rowclass_track {
+        width: auto;
+        gap: 15px;
+    }
+
+    /* Service Cards */
+    .service-card {
+        width: 90vw;
+        margin: 10px auto;
+    }
+
+    /* Slides */
+    .card_unique {
+        flex: 0 0 100%;
+        margin: 5px 0;
+    }
+
+    .dualCard {
+        flex: 0 0 100%;
+    }
+
+    .tripleCard {
+        flex: 0 0 100%;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 10px 3vw;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    .contact-icon {
+        margin-bottom: 5px;
+    }
+
+    .map-container {
+        height: 250px;
+    }
+
+    #wanted-section {
+        overflow: hidden;
+    }
+
+    .dualZone_containerUnique {
+        width: 100vw;
+    }
+
+    #dualSlideBox {
+        width: 100vw;
+        height: 100%;
+        margin-top: 2.2vh;
+        /* display: none; */
+    }
+
+    /* #mid_container {
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+    } */
+
+    .right-column {
+        display: none;
+    }
+
+    .press-release {
+        width: 90vw;
+    }
+    #newslist{
+        width: 90vw;
+    }
+
+    #tripleSlideBox {
+        width: 90vw;
+    }
+
+    .bottomnav {
+        width: 100vw;
+    }
+
+    /* Footer */
+    .footer {
+        width: 100vw;
+        /* padding: 20px 3vw; */
+        /* text-align: center; */
+    }
+
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Hide side buttons */
+    .right-side-button-container,
+    .left-side-button-container {
+        display: none;
+    }
+
+    /* Bottom nav */
+    .bottomnav {
+        display: flex;
     }
 }
 @media (max-width:640px){
