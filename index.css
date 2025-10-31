@@ -5,7 +5,8 @@
     --police-gold-bright: #F5C518;
     --police-red: #B00020;
     --police-red-bright: #E01E37;
-
+    --gap: 12px;
+    --transition: 500ms;
     .bg-grad-blue-gold {
         background: linear-gradient(120deg, var(--police-blue) 0%, #1E68FF 35%, var(--police-gold-bright) 100%);
     }
@@ -422,7 +423,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.side:hover .crime-caption {
+.item:hover .crime-caption {
     transform: translateY(0);
 }
 
@@ -707,14 +708,14 @@ body {
     padding: 0;
 }
 
-.side img {
+/* .item img {
     height: 212px;
     width: 15vw;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
+} */
 
-.side:hover img {
+.item:hover img {
     transform: scale(1.05);
 }
 
@@ -739,6 +740,70 @@ body {
 }
 
 /* animation for criminal  */
+
+.criminal_Content {
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  .viewport{
+    overflow:hidden;
+    width:100%;
+    border-radius:12px;
+    background:linear-gradient(180deg,#fff,#fafafa);
+    padding:12px;
+    box-shadow:0 6px 18px rgba(20,20,50,0.06);
+  }
+
+  .track{
+    display:flex;
+    gap:var(--gap);
+    will-change:transform;
+    transition: transform var(--transition) ease;
+    align-items:stretch;
+  }
+
+  .item{
+    flex:0 0 auto;
+    border-radius:10px;
+    background:#e9edf3;
+    min-height:160px;
+    /* display:flex; */
+    align-items:center;
+    justify-content:center;
+    /* overflow:hidden; */
+    padding:10px;
+  }
+
+  .item img{
+    display:block;
+    max-width:100%;
+    max-height:100%;
+    object-fit:cover;
+    width:100%;
+    height:100%;
+    transition: transform 0.5s ease;
+  }
+
+  .placeholder{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:#6b7280;
+    padding:22px;
+    font-size:18px;
+  }
+  .card {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    width:100%;
+    height:100%;
+  }
+  .card .imgwrap{flex:1; border-radius:8px; overflow:hidden;}
+  .card p{margin:0; padding:4px 0; font-size:14px; color:#212529}
+
 .criminalTrack {
     gap: 20px;
     display: flex;
@@ -1335,4 +1400,9 @@ body {
         radial-gradient(1000px 600px at 0% 100%, rgba(255, 255, 255, 0.10), transparent 60%),
         linear-gradient(120deg, #B00020 0%, #E01E37 25%, #0B3D91 75%, #0D2A5C 100%);
     }
+}
+@media (max-width:640px){
+    body{padding:12px}
+    .viewport{padding:8px}
+    .item{min-height:180px}
 }
