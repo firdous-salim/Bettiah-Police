@@ -360,7 +360,7 @@ body {
     display: flex;
     overflow: hidden;
     border-radius: 7px;
-    HEIGHT: 281px;
+    height: 38vh;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -418,7 +418,7 @@ body {
     background: rgb(194, 12, 41, 0.7);
     color: white;
     padding: 15px;
-    transform: translateY(130%);
+    transform: translateY(200%);
     transition: transform 0.3s ease;
 }
 
@@ -436,7 +436,7 @@ body {
     background: rgb(194, 12, 41, 0.7);
     color: white;
     padding: 8px;
-    transform: translateY(120%);
+    transform: translateY(200%);
     transition: transform 0.3s ease;
 }
 
@@ -772,6 +772,7 @@ body {
 }
 
 .viewport {
+    height: 41vh;
     margin-top: -20px;
     overflow: hidden;
     width: 100%;
