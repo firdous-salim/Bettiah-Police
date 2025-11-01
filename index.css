@@ -101,7 +101,7 @@
 }
 
 .topmargin{
-    margin-top: -2vh;
+    margin-top: -10.6px;
 }
 .B-Radius {
     border-radius: 15px;
@@ -362,7 +362,7 @@ body {
     display: flex;
     overflow: hidden;
     border-radius: 7px;
-    height: 38vh;
+    height: 41vh;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -1274,15 +1274,24 @@ body {
     .right-side-button-container {
         display: none;
     }
+    .public_service{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     .criminal_recent_container {
         display: flex;
+        align-items: center;
+        justify-content: center;
         flex-direction: column;
         overflow-y: visible;
     }
 
     .Criminal-container {
-        width: 100%;
+        display: none;
+        /* width: 100%; */
     }
 
     .side {
