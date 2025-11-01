@@ -332,10 +332,10 @@ body {
 
 /* CRIMAL AND gallery  */
 .criminal_recent_container {
-    padding: 2.5vh 7.72vw;
+    padding: 1.5vh 7.72vw;
     display: flex;
     justify-content: space-between;
-    height: 50vh;
+    height: 48vh;
 }
 
 /* Gallery Section */
@@ -362,7 +362,7 @@ body {
     display: flex;
     overflow: hidden;
     border-radius: 7px;
-    height: 41vh;
+    height: 40vh;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -774,7 +774,7 @@ body {
 }
 
 .viewport {
-    height: 41vh;
+    height: 40vh;
     overflow: hidden;
     width: 100%;
     border-radius: 12px;
