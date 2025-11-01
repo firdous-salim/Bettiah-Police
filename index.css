@@ -100,6 +100,9 @@
         linear-gradient(120deg, #B00020 0%, #E01E37 25%, #0B3D91 75%, #0D2A5C 100%);
 }
 
+.topmargin{
+    margin-top: -2vh;
+}
 .B-Radius {
     border-radius: 15px;
 }
@@ -329,11 +332,10 @@ body {
 
 /* CRIMAL AND gallery  */
 .criminal_recent_container {
-    margin-bottom: 4vh;
     padding: 2.5vh 7.72vw;
     display: flex;
     justify-content: space-between;
-    height: 350px;
+    height: 50vh;
 }
 
 /* Gallery Section */
@@ -773,7 +775,6 @@ body {
 
 .viewport {
     height: 41vh;
-    margin-top: -20px;
     overflow: hidden;
     width: 100%;
     border-radius: 12px;
