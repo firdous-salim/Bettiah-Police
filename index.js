@@ -500,3 +500,12 @@ c2.init();
 
 const c3 = new Carousel('viewport2', 'track2', 2, { pauseBetween: 1500, transitionTime: 2000 });
 c3.init();
+
+const c4 = new Carousel('viewport3', 'track3', 1, { pauseBetween: 1500, transitionTime: 2000 });
+c4.init();
+
+const c5 = new Carousel('viewport4', 'track4', 1, { pauseBetween: 1500, transitionTime: 2000 });
+c5.init();
+
+const c6 = new Carousel('viewport6', 'track6', 1, { pauseBetween: 1500, transitionTime: 2000 });
+c6.init();
