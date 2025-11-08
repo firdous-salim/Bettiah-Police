@@ -379,32 +379,7 @@ body {
     animation: item_flow 50s linear infinite;
 }
 
-@keyframes item_flow {
 
-    0%,
-    20% {
-        transform: translateX(0);
-    }
-
-    25%,
-    45% {
-        transform: translateX(-20.59vw);
-    }
-
-    50%,
-    70% {
-        transform: translateX(-41.38vw)
-    }
-
-    75%,
-    95% {
-        transform: translateX(-62.10vw);
-    }
-
-    100% {
-        transform: translateX(-82.72vw)
-    }
-}
 
 .gallery-item img {
     width: 100%;
@@ -576,12 +551,6 @@ body {
     width: 28vw;
 }
 
-.social-media-main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
 .section-title {
     font-weight: 700;
@@ -665,33 +634,7 @@ body {
     animation: achivement_flow 50s linear infinite;
 }
 
-@keyframes achivement_flow {
 
-    0%,
-    20% {
-        transform: translateX(0);
-    }
-
-    25%,
-    45% {
-        transform: translateX(-27.31vw)
-    }
-
-    50%,
-    70% {
-        transform: translateX(-53.85vw)
-    }
-
-    75%,
-    95% {
-        transform: translateX(-80.85vw)
-    }
-
-    100% {
-        transform: translateX(-109.47vw)
-    }
-
-}
 
 /* Most Wanted Criminals  */
 .Criminal-Title {
@@ -743,13 +686,6 @@ body {
     object-fit: cover;
 }
 
-/* .item img {
-    height: 212px;
-    width: 15vw;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-} */
-
 .item:hover img {
     transform: scale(1.05);
 }
@@ -768,13 +704,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* .details p {
-    margin: 6px 0;
-    font-size: 15px;
-    color: #ddd;
-} */
 
-/* animation for criminal  */
 
 .criminal_Content {
     max-width: 1100px;
@@ -854,51 +784,6 @@ body {
     color: #212529
 }
 
-/* .criminalTrack {
-    gap: 20px;
-    display: flex;
-    width: calc(14vw * 12);
-    animation: crime_flow 20s linear infinite;
-} */
-
-@keyframes crime_flow {
-
-    0%,
-    11.66% {
-        transform: translateX(0);
-    }
-
-    16.66%,
-    28.32% {
-        transform: translateX(-14vw);
-    }
-
-    33.32%,
-    44.98% {
-        transform: translateX(-28vw)
-    }
-
-    49.98%,
-    61.64% {
-        transform: translateX(-42.24vw);
-    }
-
-    66.64%,
-    78.3% {
-        transform: translateX(-56.54vw)
-    }
-
-    83.3%,
-    94.96% {
-        transform: translateX(-70.45vw)
-    }
-
-    100% {
-        transform: translateX(-84.94vw)
-    }
-}
-
-
 /* Important Links Section */
 .important-links {
     position: relative;
@@ -916,13 +801,18 @@ body {
     padding-left: 0;
 }
 
+.facebook_iframe {
+    height: 70vh;
+}
+
 .fb {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    height: 70vh;
     margin-top: -20px;
     background-color: white;
     border-radius: 0 0 8px 8px;
@@ -1244,6 +1134,10 @@ body {
     .DisplayFlexInLarge {
         display: block;
     }
+    .only_for_phone {
+    font-size: 14.79px;
+    font-weight: 400;
+}
 
     /* Main Header  */
 
@@ -1296,7 +1190,8 @@ body {
     .right-side-button-container {
         display: none;
     }
-    .press-release{
+
+    .press-release {
         width: 100%;
     }
 
@@ -1345,42 +1240,7 @@ body {
         margin-top: 45vh;
     }
 
-    /* @keyframes crime_flow {
 
-        0%,
-        11.66% {
-            transform: translateX(0);
-        }
-
-        16.66%,
-        28.32% {
-            transform: translateX(-320.34px);
-        }
-
-        33.32%,
-        44.98% {
-            transform: translateX(-640.68px)
-        }
-
-        49.98%,
-        61.64% {
-            transform: translateX(-961.02px);
-        }
-
-        66.64%,
-        78.3% {
-            transform: translateX(-1281.36px)
-        }
-
-        83.3%,
-        94.96% {
-            transform: translateX(-1601.7px)
-        }
-
-        100% {
-            transform: translateX(-1922.04px)
-        }
-    } */
 
     .Criminal-container>h2 {
         padding-top: 4px;
@@ -1396,32 +1256,7 @@ body {
         gap: 20px;
     }
 
-    /* @keyframes item_flow {
 
-        0%,
-        20% {
-            transform: translateX(0);
-        }
-
-        25%,
-        45% {
-            transform: translateX(-312.5px);
-        }
-
-        50%,
-        70% {
-            transform: translateX(-626px)
-        }
-
-        75%,
-        95% {
-            transform: translateX(-950.5px);
-        }
-
-        100% {
-            transform: translateX(-1250px)
-        }
-    } */
 
     .main-container {
         display: flex;
@@ -1432,6 +1267,7 @@ body {
 
     .left-column {
         width: 100%;
+
 
     }
 
@@ -1447,15 +1283,6 @@ body {
         row-gap: 10px;
     }
 
-    /* <--headquarter--> */
-    /* .contact-info{
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 40px;
-        
-    } */
     .contact-item {
         display: flex;
         gap: 10px;
@@ -1709,6 +1536,11 @@ body {
     cursor: pointer;
 }
 
+/* footer */
+.copyright {
+    padding-bottom: 5vh;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .tripleCard {
@@ -1724,19 +1556,6 @@ body {
     }
 
     /* 1 visible on phones */
-}
-
-
-/* ....................responsove desgine................ */
-
-
-/* ============================================= */
-/* RESPONSIVE CSS FOR ALL DEVICES                */
-/* ============================================= */
-
-/* ================= Desktop: > 1024px ================= */
-@media (min-width: 1025px) {
-    /* Keep original desktop styles as is */
 }
 
 /* ================= Tablet: 768px – 1024px ================= */
@@ -1809,226 +1628,3 @@ body {
         flex: 0 0 48%;
     }
 }
-
-/* ================= Mobile: < 767px ================= */
-/* @media (max-width: 767px) { */
-
-/* Top Header */
-/* .top-header {
-        font-size: 12px;
-        flex-direction: column;
-        text-align: center;
-        padding: 5px 2vw;
-        height: auto;
-    }
-
-    .main-header {
-        flex-direction: column;
-        height: auto;
-        padding: 5px 2vw;
-        gap: 10px;
-    }
-
-    .logo {
-        height: 10vh;
-        margin: 0 auto;
-    }
-
-    .ptobox {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .hero-banner {
-        min-height: 300px;
-        margin: 0;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    } */
-
-/* Navbar */
-/* .navbar {
-        font-size: 14px;
-        padding: 0 3vw;
-        flex-wrap: wrap;
-        height: auto;
-    }
-
-    .navbar .nav-link {
-        padding: 10px 15px !important;
-        font-size: 14px;
-    } */
-
-/* Main content */
-/* .main-container {
-        flex-direction: column;
-        padding: 1vh 3vw;
-    }
-
-    .left-column,
-    .right-column {
-        width: 100%;
-    } */
-
-/* Criminal section */
-/* .criminal_recent_container {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .side {
-        width: 90%;
-        margin: 10px auto;
-        height: auto;
-    }
-
-    .criminalTrack {
-        width: 100%;
-        gap: 10px;
-    } */
-
-/* Gallery */
-/* .gallery-section,
-    .Criminal-container {
-        width: 100vw;
-        padding: 0 3vw;
-    }
-
-    .gallery-item {
-        width: 90%;
-        margin: 0 auto 15px auto;
-        height: 200px;
-    }
-
-    .rowclass_track {
-        width: auto;
-        gap: 15px;
-    } */
-
-/* Service Cards */
-/* .service-card {
-        width: 90vw;
-        margin: 10px auto;
-    } */
-
-/* Slides */
-/* .card_unique {
-        flex: 0 0 100%;
-        margin: 5px 0;
-    }
-
-    .dualCard {
-        flex: 0 0 100%;
-    }
-
-    .tripleCard {
-        flex: 0 0 100%;
-    } */
-
-/* Contact Section */
-/* .contact-section {
-        padding: 10px 3vw;
-    }
-
-    .contact-item {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-    } */
-
-/* .contact-icon {
-        margin-bottom: 5px;
-    }
-
-    .map-container {
-        height: 250px;
-    }
-
-    #wanted-section {
-        overflow: hidden;
-    }
-
-    .dualZone_containerUnique {
-        width: 100vw;
-    }
-
-    #dualSlideBox {
-        width: 100vw;
-        height: 100%;
-        margin-top: 2.2vh; */
-/* display: none; */
-}
-
-/* #mid_container {
-        width: 100vw;
-        display: flex;
-        flex-direction: row;
-    } */
-
-/* .right-column {
-        display: none;
-    }
-
-    .press-release {
-        width: 90vw;
-    }
-
-    #newslist {
-        width: 90vw;
-    }
-
-    #tripleSlideBox {
-        width: 90vw;
-    }
-
-    .bottomnav {
-        width: 100vw;
-    } */
-
-/* Footer */
-/* .footer {
-        width: 100vw; */
-/* padding: 20px 3vw; */
-/* text-align: center; */
-/* } */
-
-/* .social-icons a {
-        width: 35px;
-        height: 35px;
-    } */
-
-/* Hide side buttons */
-/* .right-side-button-container,
-    .left-side-button-container {
-        display: none;
-    } */
-
-/* Bottom nav */
-/* .bottomnav {
-        display: flex;
-    }
-} */
-
-/* @media (max-width:640px) {
-    body {
-        padding: 12px
-    }
-
-    .viewport {
-        padding: 8px
-    }
-
-    .item {
-        min-height: 180px
-    }
-} */
