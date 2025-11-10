@@ -162,6 +162,9 @@ body {
     padding: 10px 0;
     flex-wrap: wrap;
 }
+.phone_email{
+    display: none;
+}
 
 .logo-container {
     display: flex;
@@ -1119,7 +1122,12 @@ body {
     }
 
     .mail-box {
+        display: none;
         font-size: 11px;
+    }
+    .phone_email{
+        display: block;
+         font-size: 11px;
     }
 
     .lang-icon {
@@ -1134,8 +1142,8 @@ body {
         display: block;
     }
     .only_for_phone {
-    font-size: 14.79px;
-    font-weight: 400;
+    font-size: 13.79px;
+    font-weight: 500;
 }
 
     /* Main Header  */
