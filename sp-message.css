@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.main_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 2vh;
+}
+.heading{
+    width: 90%;
+    background-color: blue;
+    color: yellow;
+    font-size: 18px;
+    height: 5vh;
+    text-align: center;
+}
+.container{
+    width: 90%;
+    display: flex;
+    justify-content:center ;
+    column-gap: 2vh;
+}
+.sp-message{
+    width: 50%;
+    height:60vh;
+}
+.sp-pic{
+    width: 50%;
+}
+.sp{
+    width: 100%;
+    height: 60vh;
+    padding-right: 8px;
+}
+.message_to_people{
+    font-size: 18px;
+    padding-top: 20px;
+    padding-left: 8px;
+    white-space: pre-line;
+}
